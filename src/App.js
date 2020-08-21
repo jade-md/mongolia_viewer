@@ -16,7 +16,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      viewerTitle: "viewerTemplate",
+      viewerTitle: "Mongolia viewer",
       menuLinks: [
         {
           title: "Explorer",

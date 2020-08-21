@@ -20,8 +20,8 @@ function Data() {
           "https://a.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}@2x.png",
         attribution:
           "&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>",
-        center: [-12.85, -69.7],
-        zoom: 9,
+        center: [46.0, 109.7],
+        zoom: 5.25,
         labelsSrc:
           "https://{s}.basemaps.cartocdn.com/rastertiles/voyager_only_labels/{z}/{x}/{y}{r}.png",
       },
@@ -48,7 +48,7 @@ function Data() {
       dataSections: [
         {
           id: 0,
-          title: "First data section",
+          title: "Habitat quality model inputs",
           infotext: [
             {
               subtitle: "Description",
@@ -58,7 +58,7 @@ function Data() {
                   pointmap has tooltips and popups that are displayed when the icon is
                   clicked.{" "}
                   <a
-                    href="https://github.com/charlottegiseleweil/viewerTemplate"
+                    href="https://github.com/jade-md/mongolia_viewer.git"
                     target="_blank"
                     rel="noopener noreferrer">
                     This is a link to the Github repo
@@ -82,7 +82,7 @@ function Data() {
         },
         {
           id: 1,
-          title: "Second data section",
+          title: "Habitat quality model outputs",
           infotext: [
             {
               subtitle: "Description",
@@ -127,16 +127,38 @@ function Data() {
         {
           id: 0,
           sectionID: 0,
-          title: "Shapefile (polygons)",
+          title: "Gobisteppe",
           type: "shapefile",
-          src: "AOI.zip",
+          src: "aoi_gcs.zip",
           style: Style().redOutline,
           legendSrc: "exampleLegend3.png",
-          selected: false,
+          selected: true,
           link: "https://en.wikipedia.org/wiki/Region_of_interest",
         },
         {
           id: 1,
+          sectionID: 0,
+          title: "Accessibility",
+          type: "shapefile",
+          src: "accessibility.zip",
+          style: Style().newColorStyle,
+          styleProperty: "ACCESS", // change to the name of the shapefile property you want the styling to be based on
+          legendSrc: "access_legend.png",
+          selected: false,
+          link: "https://drive.google.com/open?id=1UP8wiEaM3Bry6jwC8nVpWVfZefWiOWIf&authuser=jademd%40stanford.edu&usp=drive_fs",
+        },
+        {
+          id: 2,
+          sectionID: 0,
+          title: "Land use/cover",
+          type: "raster",
+          src: "lulc_current_gcs.tif", // must be projected with EPSG:4326
+          style: Style().greenAndRedRaster,
+          legendSrc: "lulc_legend.png",
+          selected: true,
+        },
+        {
+          id: 2,
           sectionID: 0,
           title: "Shapefile (points)",
           type: "shapefile",
@@ -148,7 +170,7 @@ function Data() {
           popup: Popup().examplePopup,
         },
         {
-          id: 2,
+          id: 3,
           sectionID: 0,
           title: "Tiles",
           type: "tiles",
@@ -158,7 +180,7 @@ function Data() {
           selected: false,
         },
         {
-          id: 3,
+          id: 4,
           sectionID: 0,
           title: "Raster",
           type: "raster",
@@ -170,7 +192,7 @@ function Data() {
 
         // Example of map layer linked to chart
         {
-          id: 4,
+          id: 5,
           sectionID: 1,
           title: "Styled shapefile",
           type: "shapefile",
